@@ -1,5 +1,5 @@
 class PdfsController < ApplicationController
-  before_action :set_pdf, only: %i[ show edit update destroy ]
+  before_action :set_pdf, only: %i[show edit update destroy]
 
   # GET /pdfs or /pdfs.json
   def index
@@ -58,13 +58,14 @@ class PdfsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_pdf
-      @pdf = Pdf.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def pdf_params
-      params.fetch(:pdf, {})
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_pdf
+    @pdf = Pdf.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def pdf_params
+    params.fetch(:pdf, {}).permit(:source_file)
+  end
 end
