@@ -1,2 +1,5 @@
 <div id="<%= dom_id pdf %>">
+  <% pdf.source_pages.each do |page|%>
+  <img height="200" src="<%= url_for(page) %>" />
+  <% end %>
 </div>
