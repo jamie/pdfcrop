@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Pdfs</h1>
+
+<div id="pdfs">
+  <% @pdfs.each do |pdf| %>
+    <%= render pdf %>
+    <p>
+      <%= link_to "Show this pdf", pdf %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New pdf", new_pdf_path %>
