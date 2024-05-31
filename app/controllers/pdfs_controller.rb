@@ -3,7 +3,7 @@ class PdfsController < ApplicationController
 
   # GET /pdfs or /pdfs.json
   def index
-    @pdfs = Pdf.all
+    @pdfs = Pdf.order("id desc").all
   end
 
   # GET /pdfs/1 or /pdfs/1.json

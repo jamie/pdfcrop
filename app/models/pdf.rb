@@ -2,6 +2,10 @@ class Pdf < ApplicationRecord
   has_one_attached :source_file
   has_many_attached :source_pages
 
+  before_create -> {
+    self.uuid = SecureRandom.uuid
+    self.filename = source_file.filename.to_s
+  }
   after_create_commit :extract_pages
 
   def extract_pages
