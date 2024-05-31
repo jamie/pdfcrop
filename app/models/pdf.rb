@@ -2,6 +2,9 @@ class Pdf < ApplicationRecord
   has_one_attached :source_file
   has_many_attached :source_pages
 
+  # Tells URL generators to provide UUID instead of ID
+  def to_param = uuid
+
   before_create -> {
     self.uuid = SecureRandom.uuid
     self.filename = source_file.filename.to_s

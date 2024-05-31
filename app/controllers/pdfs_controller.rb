@@ -61,7 +61,7 @@ class PdfsController < ApplicationController
 
   # Use callbacks to share common setup or constraints between actions.
   def set_pdf
-    @pdf = Pdf.find(params[:id])
+    @pdf = Pdf.find_by(uuid: params[:id])
   end
 
   # Only allow a list of trusted parameters through.
