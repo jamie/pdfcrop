@@ -14,5 +14,8 @@ export default class extends Controller {
     for (let i = 0; i < value; i++) {
       imgs[i].classList.add("ignored");
     }
+
+    let preview = document.getElementById("cropPreview").children[0];
+    preview.src = imgs[value].children[0].src;
   }
 }
