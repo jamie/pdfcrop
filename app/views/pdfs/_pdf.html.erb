@@ -1,7 +1,11 @@
 <div id="<%= dom_id pdf %>">
   <h2><%= pdf.filename %></h2>
-  <h3><%= pdf.uuid %></h3>
-  <% pdf.source_pages.each do |page|%>
-  <img height="200" src="<%= url_for(page) %>" />
-  <% end %>
+
+  <div id="pageGrid">
+    <% pdf.source_pages.each do |page|%>
+      <span class="imgWrap">
+        <img height="100" src="<%= url_for(page) %>" />
+      </span>
+    <% end %>
+  </div>
 </div>
