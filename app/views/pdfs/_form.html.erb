@@ -1,19 +1,6 @@
 <%= form_with(model: pdf) do |form| %>
-  <% if pdf.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(pdf.errors.count, "error") %> prohibited this pdf from being saved:</h2>
-
-      <ul>
-        <% pdf.errors.each do |error| %>
-          <li><%= error.full_message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <%= form.file_field :source_file %>
-
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.file_field :source_file %>
   </div>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

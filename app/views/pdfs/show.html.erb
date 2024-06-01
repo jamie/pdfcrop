@@ -1,10 +1,8 @@
-<p style="color: green"><%= notice %></p>
+<div class="row">
+  <p style="color: green"><%= notice %></p>
 
-<%= render @pdf %>
+  <div class="col-9">
+    <%= render @pdf %>
+  </div>
 
-<div>
-  <%= link_to "Edit this pdf", edit_pdf_path(@pdf) %> |
-  <%= link_to "Back to pdfs", pdfs_path %>
-
-  <%= button_to "Destroy this pdf", @pdf, method: :delete %>
 </div>
