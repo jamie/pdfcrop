@@ -5,25 +5,23 @@ class Exporters::Zip
   end
 
   def data
-    content = nil
-    Tempfile.create do |tempfile|
-      Zip::File.open(tempfile.path, create: true) do |zipfile|
-        i = 1
-        each_front_jpg_buttonshy do |jpg|
-          zipfile.get_output_stream("front-#{i}.jpg") { _1.write(jpg) }
-          i += 1
-        end
-
-        i = 1
-        each_back_jpg_buttonshy do |jpg|
-          zipfile.get_output_stream("back-#{i}.jpg") { _1.write(jpg) }
-          i += 1
-        end
+    stringio = Zip::OutputStream.write_buffer do |zipfile|
+      i = 1
+      each_front_jpg_buttonshy do |jpg|
+        zipfile.put_next_entry("front-#{i}.jpg")
+        zipfile.write(jpg)
+        i += 1
       end
 
-      content = File.open(tempfile.path).read
+      i = 1
+      each_back_jpg_buttonshy do |jpg|
+        zipfile.put_next_entry("back-#{i}.jpg")
+        zipfile.write(jpg)
+        i += 1
+      end
     end
-    content
+
+    stringio.string
   end
 
   private
