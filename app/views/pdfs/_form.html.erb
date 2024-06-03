@@ -1,6 +1,6 @@
 <%= form_with(model: pdf) do |form| %>
   <div class="mb-3">
-    <%= form.file_field :source_file %>
+    <%= form.file_field :source_file, accept: ".pdf" %>
   </div>
   <%= form.submit class: "btn btn-primary" %>
 <% end %>

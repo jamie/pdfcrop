@@ -8,67 +8,35 @@
 
   <div data-controller="ignoreFirst">
     <label for="ignoreFirst" class="form-label">Ignore first <span data-ignoreFirst-target="label">0</span> pages</label>
-    <input type="range" class="form-range" id="ignoreFirst" data-ignoreFirst-target="range" data-action="ignoreFirst#update" min="0" max="<%= @pdf.source_pages.count - 1 %>" value="0" />
+    <input type="range" class="form-range" id="ignoreFirst" name="ignoreFirst" data-ignoreFirst-target="range" data-action="ignoreFirst#update" min="0" max="<%= @pdf.source_pages.count - 1 %>" value="0" />
   </div>
 
+  <hr/>
   <div>
-    <hr/>
     <h3>Rows</h3>
-
-    <div>
-      <label for="cardRows" class="form-label">Cards across</label>
-      <input type="range" class="form-range" id="cardRows" min="1" max="10" value="3" />
-    </div>
-
-    <div>
-      <label for="cardLeft" class="form-label">Left gap</label>
-      <input type="range" class="form-range" id="cardLeft" min="0" max="500" value="226" />
-    </div>
-
-    <div>
-      <label for="cardWidth" class="form-label">Card Width</label>
-      <input type="range" class="form-range" id="cardWidth" min="0" max="600" value="375" />
-    </div>
-
-    <div>
-      <label for="cardRowGap" class="form-label">Horizontal gap</label>
-      <input type="range" class="form-range" id="cardRowGap" min="0" max="64" value="36" />
-    </div>
+    <%= labelled_range "cardsX", "Cards across", 1..10, 3 %>
+    <%= labelled_range "marginX", "Left gap", 0..500, 226 %>
+    <%= labelled_range "cardX", "Card width", 0..600, 375 %>
+    <%= labelled_range "paddingX", "Horizontal gap", 0..64, 36 %>
   </div>
 
+  <hr/>
   <div>
-    <hr/>
     <h3>Columns</h3>
-
-    <div>
-      <label for="cardRows" class="form-label">Cards down</label>
-      <input type="range" class="form-range" id="cardRows" min="1" max="10" value="2" />
-    </div>
-
-    <div>
-      <label for="cardLeft" class="form-label">Top gap</label>
-      <input type="range" class="form-range" id="cardLeft" min="0" max="500" value="95" />
-    </div>
-
-    <div>
-      <label for="cardLeft" class="form-label">Card Height</label>
-      <input type="range" class="form-range" id="cardLeft" min="0" max="600" value="525" />
-    </div>
-
-    <div>
-      <label for="cardRowGap" class="form-label">Vertical gap</label>
-      <input type="range" class="form-range" id="cardRowGap" min="0" max="64" value="36" />
-    </div>
+    <%= labelled_range "cardsY", "Cards down", 1..10, 2 %>
+    <%= labelled_range "marginY", "Top gap", 0..500, 95 %>
+    <%= labelled_range "cardY", "Card height", 0..600, 525 %>
+    <%= labelled_range "paddingY", "Vertical gap", 0..64, 36 %>
   </div>
 
   <div>
     <hr/>
-    <h3>Downloads</h3>
-    <div class="mb-1"><input type="submit" class="btn btn-primary" value="Individual Cards (.zip)" /></div>
-    <div class="mb-1"><input type="submit" class="btn btn-primary" value="70% Repaged 9up (.pdf)" /></div>
-    <div class="mb-1"><input type="submit" class="btn btn-primary" value="Tabletop Simulator (Fronts)" /></div>
-    <div class="mb-1"><input type="submit" class="btn btn-primary" value="Tabletop Simulator (Backs)" /></div>
-    <div class="mb-1"><input type="submit" class="btn btn-primary" value="PlayingCards.io (.pcio)" /></div>
+    <h3>Convert & Download</h3>
+    <div class="mb-1"><input type="submit" class="btn btn-primary" name="commit" value="Individual Cards (.zip)" /></div>
+    <div class="mb-1"><input type="submit" class="btn btn-primary" name="commit" value="70% Repaged 9up (.pdf)" /></div>
+    <div class="mb-1"><input type="submit" class="btn btn-primary" name="commit" value="Tabletop Simulator (Fronts)" /></div>
+    <div class="mb-1"><input type="submit" class="btn btn-primary" name="commit" value="Tabletop Simulator (Backs)" /></div>
+    <div class="mb-1"><input type="submit" class="btn btn-primary" name="commit" value="PlayingCards.io (.pcio)" /></div>
   </div>
 
 <% end %>
