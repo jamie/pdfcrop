@@ -280,6 +280,7 @@ DEPENDENCIES
   rails (~> 7.1.3, >= 7.1.3.2)
   rails_live_reload
   ruby-vips
+  rubyzip
   selenium-webdriver
   sprockets-rails
   sqlite3 (~> 1.4)

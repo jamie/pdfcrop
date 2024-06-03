@@ -3,7 +3,7 @@
 <br />
 <br />
 
-<%= form_with(model: @pdf) do |form| %>
+<%= form_with(url: pdf_exports_path(@pdf), data: {turbo: false}) do |form| %>
   <!-- Select input to preload other common defaults? -->
 
   <div data-controller="ignoreFirst">
