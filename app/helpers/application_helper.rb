@@ -1,10 +1,20 @@
 module ApplicationHelper
-  def labelled_range(name, label, range, default)
+  def labelled_range(name, label, range, default, step: 1)
     <<~HTML.html_safe
-    <div>
-      <label for="#{name}" class="form-label">#{label}</label>
-      <input type="range" id="#{name}" name="#{name}" class="form-range" min="#{range.begin}" max="#{range.end}" value="#{default}" />
-    </div>
+      <div class="range-slider" data-controller="range-slider">
+        <label for="#{name}">#{label}</label>
+        <br />
+        <input type="range"
+              name="#{name}"
+              class="range-slider__range"
+              data-range-slider-target="range"
+              data-action="input->range-slider#updateValue"
+              value="#{default}"
+              min="#{range.begin}"
+              max="#{range.end}"
+              step="#{step}">
+        <output class="range-slider__value" data-range-slider-target="value">#{default}</output>
+      </div>
     HTML
   end
 end
