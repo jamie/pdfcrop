@@ -6,14 +6,14 @@ module ApplicationHelper
         <br />
         <input type="range"
               name="#{name}"
-              class="range-slider__range"
+              class="form-range"
               data-range-slider-target="range"
               data-action="input->range-slider#updateValue"
               value="#{default}"
               min="#{range.begin}"
               max="#{range.end}"
               step="#{step}">
-        <output class="range-slider__value" data-range-slider-target="value">#{default}</output>
+        <output data-range-slider-target="value">#{default}</output>
       </div>
     HTML
   end

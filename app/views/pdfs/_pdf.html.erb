@@ -1,6 +1,5 @@
 <div id="<%= dom_id pdf %>">
   <h2><%= pdf.filename %></h2>
-
   <div id="pageGrid">
     <% pdf.source_pages.each do |page|%>
       <span class="imgWrap">
@@ -8,9 +7,7 @@
       </span>
     <% end %>
   </div>
-
   <hr/>
-
   <div id="cropPreview">
     <img width="100%" src="<%= url_for(pdf.source_pages.first) %>" />
   </div>

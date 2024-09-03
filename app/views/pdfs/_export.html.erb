@@ -9,6 +9,8 @@
   <div data-controller="ignoreFirst">
     <label for="ignoreFirst" class="form-label">Ignore first <span data-ignoreFirst-target="label">0</span> pages</label>
     <input type="range" class="form-range" id="ignoreFirst" name="ignoreFirst" data-ignoreFirst-target="range" data-action="ignoreFirst#update" min="0" max="<%= @pdf.source_pages.count - 1 %>" value="0" />
+
+    <%= labelled_range "ignoreN", "Ignore initial pages", 0...@pdf.source_pages.count, 1 %>
   </div>
 
   <hr/>
